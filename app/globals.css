@@ -2,25 +2,106 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #09090b;
+
+  --accent: #ff553b;
+  --accent-hover: #e0452a;
+
+  --muted: #71717a;
+  --border: #e4e4e7;
+
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+}
+
+.dark {
+  --background: #070c18;
+  --foreground: #f4f4f5;
+  --accent: #ff553b;
+  --accent-hover: #e0452a;
+  --muted: #a1a1aa;
+  --border: #1f2024;
+  --card: #0b0c10;
+  --card-foreground: #f4f4f5;
+}
+
+html,
+body,
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.8s ease-in-out,
+    color 0.8s ease-in-out,
+    border-color 0.8s ease-in-out;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
+html,
 body {
-  background: var(--background);
+  scroll-behavior: smooth;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Grid Background Overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(255, 85, 59, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 85, 59, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center top;
+}
+
+.light .grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Glowing background */
+.radial-glow {
+  background: radial-gradient(circle 400px at 50% 50%, rgba(255, 85, 59, 0.12), transparent 80%);
+}
+
+.radial-glow-light {
+  background: radial-gradient(circle 350px at 50% 50%, rgba(255, 85, 59, 0.08), transparent 85%);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }
