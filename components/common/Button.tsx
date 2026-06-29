@@ -1,23 +1,17 @@
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
-    onClick?: () => void;
     variant?: "primary" | "secondary" | "outline";
     slanted?: boolean;
-    type?: "button" | "submit" | "reset";
-    className?: string;
 }
 
 export default function Button({
     children,
-    onClick,
     variant = "primary",
     slanted = false,
-    type = "button",
     className = "",
     ...props
-
 }: ButtonProps) {
     const baseStyles = "px-6 py-2.5 font-semibold text-sm transition-all duration-300 inline-flex items-center justify-center cursor-pointer";
 
