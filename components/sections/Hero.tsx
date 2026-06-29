@@ -42,7 +42,7 @@ export default function Hero() {
             transition: {
                 duration: 8,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: [0, 0, 1, 1],
             },
         },
     };
