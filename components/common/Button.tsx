@@ -16,9 +16,11 @@ export default function Button({
     slanted = false,
     type = "button",
     className = "",
+    ...props
+
 }: ButtonProps) {
     const baseStyles = "px-6 py-2.5 font-semibold text-sm transition-all duration-300 inline-flex items-center justify-center cursor-pointer";
-    
+
     let variantStyles = "";
     if (variant === "primary") {
         variantStyles = "bg-accent text-white hover:bg-accent-hover";
@@ -33,8 +35,7 @@ export default function Button({
 
     return (
         <button
-            type={type}
-            onClick={onClick}
+            {...props}
             className={`${baseStyles} ${skewStyles} ${variantStyles} ${className}`}
         >
             <span className={childSkewStyles}>
