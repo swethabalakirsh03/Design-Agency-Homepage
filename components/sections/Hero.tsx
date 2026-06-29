@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Button from "../common/Button";
 
 export default function Hero() {
@@ -12,8 +12,10 @@ export default function Hero() {
     };
 
     // Animation settings
-    const containerVariants = {
-        hidden: { opacity: 0 },
+    const containerVariants: Variants = {
+        hidden: {
+            opacity: 0,
+        },
         visible: {
             opacity: 1,
             transition: {
@@ -23,26 +25,30 @@ export default function Hero() {
         },
     };
 
-    const itemVariants = {
-        hidden: { y: 30, opacity: 0 },
+    const itemVariants: Variants = {
+        hidden: {
+            y: 30,
+            opacity: 0,
+        },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
                 duration: 0.8,
-                ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier for smooth deceleration
+                ease: "easeOut",
             },
         },
     };
 
-    const glowVariants = {
+
+    const glowVariants: Variants = {
         animate: {
             scale: [1, 1.05, 1],
             opacity: [0.7, 0.9, 0.7],
             transition: {
                 duration: 8,
                 repeat: Infinity,
-                ease: [0, 0, 1, 1],
+                ease: "linear",
             },
         },
     };
