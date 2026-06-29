@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Container from "../common/Container";
 import SectionTitle from "../common/SectionTitle";
 import ServiceCard from "../cards/ServiceCard";
 import { services } from "@/data/services";
 
 export default function Services() {
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: {},
         visible: {
             transition: {
@@ -16,8 +16,11 @@ export default function Services() {
         },
     };
 
-    const cardVariants = {
-        hidden: { y: 40, opacity: 0 },
+    const cardVariants: Variants = {
+        hidden: {
+            y: 40,
+            opacity: 0,
+        },
         visible: {
             y: 0,
             opacity: 1,
